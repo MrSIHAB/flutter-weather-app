@@ -27,7 +27,7 @@ class _WeatherScreenState extends State<WeatherScreen> {
         ),
       );
 
-      final data = jsonDecode(res.body);
+      final data = await jsonDecode(res.body);
       if (data['cod'] != '200') {
         throw 'An unexpected error occured';
       }
@@ -35,7 +35,7 @@ class _WeatherScreenState extends State<WeatherScreen> {
       //  data['list'][0]['main']['temp'];
       return data;
     } catch (e) {
-      throw 'Unable to get data';
+      throw 'Unable to get weather data';
     }
   }
 
