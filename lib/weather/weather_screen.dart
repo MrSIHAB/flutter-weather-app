@@ -35,7 +35,7 @@ class _WeatherScreenState extends State<WeatherScreen> {
       //  data['list'][0]['main']['temp'];
       return data;
     } catch (e) {
-      throw 'Unable to get weather data';
+      throw 'Unable to get weather data: ${e.toString()}';
     }
   }
 
