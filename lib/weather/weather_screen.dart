@@ -20,17 +20,19 @@ class _WeatherScreenState extends State<WeatherScreen> {
   Future<Map<String, dynamic>> getCurrentWeather() async {
     // getting Current City name
     String cityName = 'Lakshmipur';
+    http.Client client = http.Client();
+
     try {
-      final res = await http.get(
+      final res = await client.get(
         Uri.parse(
           '$apiLink?q=$cityName&APPID=$weatherKey',
         ),
       );
 
       final data = await jsonDecode(res.body);
-      if (data['cod'] != '200') {
-        throw 'An unexpected error occured';
-      }
+//      if (data['cod'] != '200') {
+//        throw 'An unexpected error occured';
+//      }
 
       //  data['list'][0]['main']['temp'];
       return data;
